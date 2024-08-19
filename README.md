@@ -1,2 +1,4 @@
-# MH-Ultimate-Data-Structures-and-Algorithms
-Content related to the course from CodeWithMosh.com https://codewithmosh.com/p/data-structures-algorithms
+The Ultimate Data Structures & Algorithms Bundle
+================================================
+
+Content related to the course bundle from [CodeWithMosh.com](https://codewithmosh.com/p/data-structures-algorithms)
