@@ -1,4 +1,6 @@
-﻿namespace Arrays;
+﻿using System.Text;
+
+namespace Arrays;
 
 using SystemArray =  System.Array;
 
@@ -73,6 +75,25 @@ public class Array
         
         // -1 means it wasn't found in the array
         return -1; 
+    }
+
+    /// <summary>
+    /// Represents the array values comma separated
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString()
+    {
+        if (array.Length == 0) return string.Empty;
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < array.Length;i++)
+        {
+            if (i>0) sb.Append(", ");
+            sb.Append(array[i]);
+        }
+        
+        return sb.ToString();
     }
 
 }

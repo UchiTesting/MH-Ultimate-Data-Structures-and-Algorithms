@@ -104,4 +104,26 @@ public class ArrayTests
         Assert.AreEqual(6, result6);
         Assert.AreEqual(7, result7);
     }
+
+    [TestMethod]
+    public void ToStringShouldReturnCommaSeparatedValues()
+    {
+        // Arrange
+        Array arrayUnderTest = new Array();
+        arrayUnderTest.Insert(0);
+        arrayUnderTest.Insert(1);
+        arrayUnderTest.Insert(2);
+        arrayUnderTest.Insert(3);
+        arrayUnderTest.Insert(4);
+        arrayUnderTest.Insert(5);
+        arrayUnderTest.Insert(6);
+        arrayUnderTest.Insert(7);
+        
+        // Act
+        string result = arrayUnderTest.ToString();
+        
+        // Assert
+        string expectedResult = "0, 1, 2, 3, 4, 5, 6, 7";
+        Assert.AreEqual(expectedResult, result);
+    }
 }
