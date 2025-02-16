@@ -1,5 +1,7 @@
 ﻿namespace Arrays;
 
+using SystemArray =  System.Array;
+
 /// <summary>
 /// Managed array as exercice per Mode Algos and Structure course.
 /// It shall follow the course being an array of int
@@ -7,16 +9,59 @@
 /// </summary>
 public class Array
 {
-    public Array(int length) { }
+    private int[] array;
+    /// <summary>
+    /// As we can allocate ahead for a certain length,
+    /// insert method shall now the index to which it corresponds.
+    /// 0 is an acceptable value and thus cannot be used to check if a slot has been valued already
+    /// </summary>
+    private int insertCounter = 0;
 
-    public void Insert(int item)
+    public int Size => array.Length;
+
+    /// <summary>
+    /// Create a new array and allocate slots for a few items
+    /// </summary>
+    /// <param name="length"></param>
+    public Array(int length = 0)
     {
-        throw new NotImplementedException();
+        array = new int[length];
     }
 
-    public void RemoveAt(int item)
+    /// <summary>
+    /// Inserts a value in the table sequentially
+    /// Can resize the internal array to insert new elements when all allocated slots have been valued
+    /// </summary>
+    /// <param name="item"></param>
+    public void Insert(int item)
     {
-        throw new NotImplementedException();
+        if (insertCounter < array.Length)
+        {
+            array[insertCounter] = item;
+        }
+        else
+        {
+            ResizeAndInsert(item);
+        }
+
+        insertCounter++;
+    }
+
+    private void ResizeAndInsert(int item)
+    {
+        int newSize = array.Length + 1;
+        SystemArray.Resize(ref array, newSize);
+        array[newSize-1] = item;
+    }
+
+    public void RemoveAt(int index)
+    {
+        for (int i = index; i < array.Length - 1; i++)
+        {
+            array[i] = array[i + 1];
+        }
+        
+        SystemArray.Resize(ref array, array.Length - 1);
     }
 
     public int IndexOf(int item)
