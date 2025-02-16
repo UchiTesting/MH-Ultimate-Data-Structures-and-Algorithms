@@ -66,7 +66,13 @@ public class Array
 
     public int IndexOf(int item)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == item) return i;
+        }
+        
+        // -1 means it wasn't found in the array
+        return -1; 
     }
 
 }
