@@ -1,4 +1,3 @@
-using Arrays;
 using Array = Arrays.Array;
 
 namespace ArraysTests;
