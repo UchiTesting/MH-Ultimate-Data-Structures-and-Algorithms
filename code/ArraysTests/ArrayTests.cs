@@ -126,4 +126,18 @@ public class ArrayTests
         string expectedResult = "0, 1, 2, 3, 4, 5, 6, 7";
         Assert.AreEqual(expectedResult, result);
     }
+    
+    [TestMethod]
+    public void ToStringShouldReturnStringEmpty()
+    {
+        // Arrange
+        Array arrayUnderTest = new Array();
+        
+        // Act
+        string result = arrayUnderTest.ToString();
+        
+        // Assert
+        string expectedResult = string.Empty;
+        Assert.AreEqual(expectedResult, result);
+    }
 }
